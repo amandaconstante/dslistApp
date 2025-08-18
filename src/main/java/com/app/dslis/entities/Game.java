@@ -17,7 +17,9 @@ public class Game {
     private String platforms;
     private Double score;
     private String imgUrl;
+    @Column(columnDefinition = "TEXT") // anotação para bd aceitar argumento como texto e nao no padrão varchar(255) que aceita máx de 255 caracteres
     private String shortDescription;
+    @Column(columnDefinition = "Text")
     private String longDescription;
 
     public Game() {
