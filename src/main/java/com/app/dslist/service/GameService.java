@@ -19,7 +19,7 @@ public class GameService {
 
     @Transactional(readOnly = true)
     public GameDTO findById(Long id) {
-        Game result = gameRepository.findById(id).get(); // TO-DO futuro: tratar quando nao existir
+        Game result = gameRepository.findById(id).get();
         return new GameDTO(result);
     }
 
@@ -27,8 +27,6 @@ public class GameService {
     public List<GameMinDTO> findAll() {
         List<Game> result = gameRepository.findAll();
         return result.stream().map(entity -> new GameMinDTO(entity)).toList();
-//        List<GameMinDTO> dtoList = new ArrayList<>(result.stream().map(GameMinDTO::new).toList());
-//        dtoList.sort(Comparator.comparing(GameMinDTO::getYear).thenComparing(GameMinDTO::getTitle));
     }
 
     @Transactional(readOnly = true)
